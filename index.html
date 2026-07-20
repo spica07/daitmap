@@ -128,6 +128,9 @@
     font-size:.86rem;
     color:var(--cream);
     opacity:.92;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
 
   .card__stub{
@@ -259,7 +262,7 @@
         <a class="card" style="--plaque:#584878" href="https://spica07.github.io/summer_water/" target="_blank" rel="noopener">
           <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span>
           <span class="card__title">전국 물놀이장 지도</span>
-          <span class="card__desc">여름철 시원하게 놀 수 있는 물놀이장 모음</span>
+          <span class="card__desc">여름철 시원한 물놀이장 모음</span>
           <span class="card__stub">
             <span class="card__count">835<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -272,7 +275,7 @@
         <a class="card" style="--plaque:#6B5049" href="https://spica07.github.io/museum_map/" target="_blank" rel="noopener">
           <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 3l9 6"/><path d="M4 9v11h16V9"/><path d="M8 20v-7M12 20v-7M16 20v-7"/><path d="M2 20h20"/></svg></span>
           <span class="card__title">전국 박물관·미술관 지도</span>
-          <span class="card__desc">국립·공립 박물관과 미술관, 관람시간과 요금까지</span>
+          <span class="card__desc">관람시간과 요금까지 한눈에</span>
           <span class="card__stub">
             <span class="card__count">505<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -285,7 +288,7 @@
         <a class="card" style="--plaque:#2E4F3A" href="https://spica07.github.io/library_map/" target="_blank" rel="noopener">
           <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c2-1.2 4.5-1.5 8-1v15c-3.5-.5-6-.2-8 1V5Z"/><path d="M20 5c-2-1.2-4.5-1.5-8-1v15c3.5-.5 6-.2 8 1V5Z"/></svg></span>
           <span class="card__title">전국 공공도서관 지도</span>
-          <span class="card__desc">책 읽으러 가기 좋은 도서관을 지역별로 찾아보기</span>
+          <span class="card__desc">지역별 도서관을 한눈에</span>
           <span class="card__stub">
             <span class="card__count">3,353<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -298,7 +301,7 @@
         <a class="card" style="--plaque:#9C2E37" href="https://spica07.github.io/hospital_map/" target="_blank" rel="noopener">
           <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span>
           <span class="card__title">전국 병원 지도</span>
-          <span class="card__desc">병원급 이상 의료기관, 급할 때 빠르게 찾기</span>
+          <span class="card__desc">급할 때 빠르게 찾는 병원</span>
           <span class="card__stub">
             <span class="card__count">4,229<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -311,7 +314,7 @@
         <a class="card" style="--plaque:#A8581A" href="https://spica07.github.io/kindergarten_map/" target="_blank" rel="noopener">
           <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/><rect x="9" y="6" width="6" height="6" rx="1"/></svg></span>
           <span class="card__title">서울 유치원 지도</span>
-          <span class="card__desc">서울 시내 공립·사립 유치원을 자치구별로</span>
+          <span class="card__desc">서울 자치구별 유치원</span>
           <span class="card__stub">
             <span class="card__count">946<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -324,7 +327,7 @@
         <a class="card" style="--plaque:#257A48" href="https://spica07.github.io/elementary_school_map/" target="_blank" rel="noopener">
           <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 21 8v1H3V8l9-5Z"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/><path d="M12 3v3"/></svg></span>
           <span class="card__title">전국 초등학교 지도</span>
-          <span class="card__desc">우리 동네 초등학교를 지역별, 설립 구분별로 찾아보기</span>
+          <span class="card__desc">지역별·설립별 초등학교</span>
           <span class="card__stub">
             <span class="card__count">6,303<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -337,7 +340,7 @@
         <a class="card" style="--plaque:#4B3FC7" href="https://spica07.github.io/voucher_map/" target="_blank" rel="noopener">
           <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-4V8Z"/><path d="M9 6v12" stroke-dasharray="2 2.5"/></svg></span>
           <span class="card__title">서울 평생교육이용권 지도</span>
-          <span class="card__desc">평생교육이용권 쓸 수 있는 기관을 분야별로 모아보기</span>
+          <span class="card__desc">서울 이용권 사용처 모음</span>
           <span class="card__stub">
             <span class="card__count">975<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
