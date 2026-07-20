@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>다있맵 — 아이와 갈 곳, 다 있는 우리 동네 지도 모음</title>
+<meta name="description" content="박물관, 도서관, 병원, 유치원, 서울 평생교육이용권 사용처, 물놀이장까지 — 공공데이터로 만든 동네 나들이 지도 6가지를 한곳에 모았습니다. 정보 공유 목적의 비영리 안내 사이트입니다.">
+<meta name="theme-color" content="#B23A2E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B23A2E'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23F1EADC' text-anchor='middle'%3E다%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=JetBrains+Mono:wght@500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1EADC;
+    --paper-card:#FBF7EF;
+    --ink:#2A241E;
+    --ink-muted:#4E4335;
+    --line:#D9CBAF;
+    --stamp:#B23A2E;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(42,36,30,.06), 0 6px 16px rgba(42,36,30,.06);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(42,36,30,.05) 1px, transparent 0);
+    background-size:22px 22px;
+    color:var(--ink);
+    font-family:'Noto Sans KR', system-ui, sans-serif;
+    line-height:1.6;
+  }
+  .skip-link{
+    position:absolute; left:1rem; top:-3rem;
+    background:var(--ink); color:var(--paper);
+    padding:.6rem 1rem; border-radius:8px;
+    transition:top .15s ease;
+    z-index:10;
+  }
+  .skip-link:focus{ top:1rem; }
+
+  a{ color:inherit; }
+  :focus-visible{
+    outline:3px solid var(--stamp);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+
+  header.hero{ padding:4.5rem 0 3rem; border-bottom:1px solid var(--line); }
+  .mark{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:2.75rem; height:2.75rem; border-radius:50%;
+    background:var(--stamp); color:var(--paper);
+    font-family:'Gowun Batang', serif; font-size:1.35rem;
+    margin-bottom:1.25rem;
+    box-shadow:var(--shadow);
+  }
+  h1.wordmark{
+    font-family:'Gowun Batang', serif;
+    font-weight:700;
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    margin:0 0 .5rem;
+    letter-spacing:-.01em;
+  }
+  .tagline{
+    font-size:clamp(1.1rem, 2.4vw, 1.35rem);
+    color:var(--ink-muted);
+    margin:0 0 1rem;
+  }
+  .lede{
+    max-width:42rem;
+    margin:0;
+    color:var(--ink-muted);
+    font-size:1rem;
+  }
+  .lede strong{ color:var(--ink); font-weight:700; }
+
+  main{ padding:3rem 0 1rem; }
+  .grid{
+    list-style:none; margin:0; padding:0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:1.25rem;
+  }
+
+  .card{
+    display:flex;
+    text-decoration:none;
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    border-top:4px solid var(--accent);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 4px 8px rgba(42,36,30,.08), 0 14px 28px rgba(42,36,30,.1);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .card{ transition:none; }
+    .card:hover{ transform:none; }
+  }
+
+  .card__body{ flex:1; display:flex; flex-direction:column; padding:1.5rem 1.25rem; min-width:0; }
+  .card__icon{ width:2rem; height:2rem; color:var(--accent); margin-bottom:.9rem; }
+  .card__icon svg{ width:100%; height:100%; display:block; }
+  .card__title{
+    font-family:'Gowun Batang', serif;
+    font-weight:700;
+    font-size:1.15rem;
+    margin:0 0 .4rem;
+    color:var(--ink);
+  }
+  .card__desc{
+    margin:0;
+    font-size:.92rem;
+    color:var(--ink-muted);
+  }
+
+  .card__stub{
+    flex:0 0 5.25rem;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:.5rem;
+    padding:.75rem .5rem;
+    border-left:2px dashed var(--line);
+    text-align:center;
+  }
+  .card__count{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--accent-text);
+  }
+  .card__count small{
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight:500;
+    font-size:.72rem;
+    color:var(--ink-muted);
+    margin-left:.1rem;
+  }
+  .card__go{
+    font-size:.78rem;
+    font-weight:500;
+    color:var(--ink-muted);
+  }
+  .card__sr{
+    position:absolute;
+    width:1px; height:1px;
+    overflow:hidden; clip:rect(0 0 0 0);
+    white-space:nowrap;
+  }
+
+  footer{
+    margin-top:4rem;
+    border-top:1px solid var(--line);
+    padding:2.5rem 0 3rem;
+  }
+  .notice{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1.5rem 1.75rem;
+  }
+  .notice h2{
+    font-family:'Gowun Batang', serif;
+    font-size:1.05rem;
+    margin:0 0 .9rem;
+  }
+  .notice ul{
+    margin:0; padding:0 0 0 1.1rem;
+    color:var(--ink-muted);
+    font-size:.88rem;
+    display:grid;
+    gap:.55rem;
+  }
+  .notice li{ padding-left:.15rem; }
+  .colophon{
+    margin-top:1.5rem;
+    font-size:.82rem;
+    color:var(--ink-muted);
+    display:flex; flex-wrap:wrap; gap:.5rem 1rem;
+    justify-content:space-between;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true">다</span>
+    <h1 class="wordmark">다있맵</h1>
+    <p class="tagline">아이와 갈 곳, 다 있어요</p>
+    <p class="lede">박물관부터 도서관, 병원, 유치원, 이용권 사용처, 물놀이장까지 —
+      <strong>공공데이터</strong>로 만든 동네 나들이 지도 6가지를 한곳에 모았습니다.</p>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <ul class="grid">
+
+      <li>
+        <a class="card" style="--accent:#8D6E63; --accent-text:#7A5B50" href="https://spica07.github.io/museum_map/" target="_blank" rel="noopener">
+          <span class="card__body">
+            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 3l9 6"/><path d="M4 9v11h16V9"/><path d="M8 20v-7M12 20v-7M16 20v-7"/><path d="M2 20h20"/></svg></span>
+            <span class="card__title">전국 박물관·미술관 지도</span>
+            <span class="card__desc">국립·공립 박물관과 미술관, 관람시간과 요금까지</span>
+          </span>
+          <span class="card__stub">
+            <span class="card__count">505<small>곳</small></span>
+            <span class="card__go" aria-hidden="true">열기 ↗</span>
+            <span class="card__sr">(새 창에서 열림)</span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a class="card" style="--accent:#3F6B4F; --accent-text:#345A42" href="https://spica07.github.io/library_map/" target="_blank" rel="noopener">
+          <span class="card__body">
+            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c2-1.2 4.5-1.5 8-1v15c-3.5-.5-6-.2-8 1V5Z"/><path d="M20 5c-2-1.2-4.5-1.5-8-1v15c3.5-.5 6-.2 8 1V5Z"/></svg></span>
+            <span class="card__title">전국 공공도서관 지도</span>
+            <span class="card__desc">책 읽으러 가기 좋은 도서관을 지역별로 찾아보기</span>
+          </span>
+          <span class="card__stub">
+            <span class="card__count">3,353<small>곳</small></span>
+            <span class="card__go" aria-hidden="true">열기 ↗</span>
+            <span class="card__sr">(새 창에서 열림)</span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a class="card" style="--accent:#D64550; --accent-text:#B3323C" href="https://spica07.github.io/hospital_map/" target="_blank" rel="noopener">
+          <span class="card__body">
+            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span>
+            <span class="card__title">전국 병원 지도</span>
+            <span class="card__desc">병원급 이상 의료기관, 급할 때 빠르게 찾기</span>
+          </span>
+          <span class="card__stub">
+            <span class="card__count">4,229<small>곳</small></span>
+            <span class="card__go" aria-hidden="true">열기 ↗</span>
+            <span class="card__sr">(새 창에서 열림)</span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a class="card" style="--accent:#FF9843; --accent-text:#C9701F" href="https://spica07.github.io/kindergarten_map/" target="_blank" rel="noopener">
+          <span class="card__body">
+            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/><rect x="9" y="6" width="6" height="6" rx="1"/></svg></span>
+            <span class="card__title">서울 유치원 지도</span>
+            <span class="card__desc">서울 시내 공립·사립 유치원을 자치구별로</span>
+          </span>
+          <span class="card__stub">
+            <span class="card__count">946<small>곳</small></span>
+            <span class="card__go" aria-hidden="true">열기 ↗</span>
+            <span class="card__sr">(새 창에서 열림)</span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a class="card" style="--accent:#5B4FE0; --accent-text:#4B3FC7" href="https://spica07.github.io/voucher_map/" target="_blank" rel="noopener">
+          <span class="card__body">
+            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-4V8Z"/><path d="M9 6v12" stroke-dasharray="2 2.5"/></svg></span>
+            <span class="card__title">서울 평생교육이용권 지도</span>
+            <span class="card__desc">평생교육이용권 쓸 수 있는 기관을 분야별로 모아보기</span>
+          </span>
+          <span class="card__stub">
+            <span class="card__count">975<small>곳</small></span>
+            <span class="card__go" aria-hidden="true">열기 ↗</span>
+            <span class="card__sr">(새 창에서 열림)</span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a class="card" style="--accent:#6B5B95; --accent-text:#584A7C" href="https://spica07.github.io/summer_water/" target="_blank" rel="noopener">
+          <span class="card__body">
+            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span>
+            <span class="card__title">전국 물놀이장 지도</span>
+            <span class="card__desc">여름철 시원하게 놀 수 있는 물놀이장 모음</span>
+          </span>
+          <span class="card__stub">
+            <span class="card__count">835<small>곳</small></span>
+            <span class="card__go" aria-hidden="true">열기 ↗</span>
+            <span class="card__sr">(새 창에서 열림)</span>
+          </span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <section class="notice" aria-labelledby="notice-heading">
+      <h2 id="notice-heading">안내</h2>
+      <ul>
+        <li>이 사이트는 정보 공유 목적으로 비영리로 제공되며, 별도 표시가 없는 한 콘텐츠의 무단 복제·재배포를 금지합니다.</li>
+        <li>모든 지도는 각 기관이 제공하는 공공데이터를 가공하여 제작되었습니다.</li>
+        <li>상표, 행사명, 장소명 등에 대한 권리는 해당 권리자에게 있습니다.</li>
+        <li>위치 정보 중 일부는 주소 기반으로 추정한 근사치일 수 있습니다.</li>
+        <li>운영시간, 요금, 휴무일 등 세부 정보는 참고용이며, 방문 전 관련 기관을 통해 반드시 다시 확인해 주세요.</li>
+      </ul>
+    </section>
+    <p class="colophon">
+      <span>© 2026 다있맵 (daitmap)</span>
+      <span>공공데이터 기반 · 정보 공유 목적</span>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
