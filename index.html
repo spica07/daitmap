@@ -6,38 +6,35 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <title>다있맵 — 아이와 갈 곳, 다 있는 우리 동네 지도 모음</title>
 <meta name="description" content="박물관, 도서관, 병원, 유치원, 초등학교, 서울 평생교육이용권 사용처, 물놀이장까지 — 공공데이터로 만든 동네 나들이 지도 7가지를 한곳에 모았습니다. 정보 공유 목적의 비영리 안내 사이트입니다.">
-<meta name="theme-color" content="#B23A2E">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B23A2E'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23F1EADC' text-anchor='middle'%3E다%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#6E3B1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%236E3B1F'/%3E%3Ctext x='16' y='23' font-family='system-ui,sans-serif' font-weight='700' font-size='18' fill='%23F6EFDD' text-anchor='middle'%3E다%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=JetBrains+Mono:wght@500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F1EADC;
-    --paper-card:#FBF7EF;
-    --ink:#2A241E;
-    --ink-muted:#4E4335;
-    --line:#D9CBAF;
-    --stamp:#B23A2E;
-    --radius:14px;
-    --shadow:0 1px 2px rgba(42,36,30,.06), 0 6px 16px rgba(42,36,30,.06);
+    --bg:#E6E7DC;
+    --surface:#F3F1E6;
+    --ink:#221B14;
+    --ink-muted:#5C5240;
+    --line:#CFC7AF;
+    --sign:#6E3B1F;
+    --sign-deep:#4A2814;
+    --cream:#F6EFDD;
   }
   *{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;}
   body{
     margin:0;
-    background:var(--paper);
-    background-image:
-      radial-gradient(circle at 1px 1px, rgba(42,36,30,.05) 1px, transparent 0);
-    background-size:22px 22px;
+    background:var(--bg);
     color:var(--ink);
-    font-family:'Noto Sans KR', system-ui, sans-serif;
+    font-family:'IBM Plex Sans KR', system-ui, sans-serif;
     line-height:1.6;
   }
   .skip-link{
     position:absolute; left:1rem; top:-3rem;
-    background:var(--ink); color:var(--paper);
-    padding:.6rem 1rem; border-radius:8px;
+    background:var(--ink); color:var(--cream);
+    padding:.6rem 1rem; border-radius:6px;
     transition:top .15s ease;
     z-index:10;
   }
@@ -45,107 +42,122 @@
 
   a{ color:inherit; }
   :focus-visible{
-    outline:3px solid var(--stamp);
+    outline:3px solid var(--sign);
     outline-offset:3px;
-    border-radius:6px;
+    border-radius:4px;
   }
 
   .wrap{ max-width:1080px; margin:0 auto; padding:0 1.5rem; }
 
-  header.hero{ padding:4.5rem 0 3rem; border-bottom:1px solid var(--line); }
-  .mark{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:2.75rem; height:2.75rem; border-radius:50%;
-    background:var(--stamp); color:var(--paper);
-    font-family:'Gowun Batang', serif; font-size:1.35rem;
-    margin-bottom:1.25rem;
-    box-shadow:var(--shadow);
-  }
-  h1.wordmark{
-    font-family:'Gowun Batang', serif;
-    font-weight:700;
-    font-size:clamp(2.4rem, 6vw, 3.6rem);
-    margin:0 0 .5rem;
-    letter-spacing:-.01em;
-  }
-  .lede{
+  header.hero{ padding:3.5rem 0 3rem; }
+  .signboard{
     max-width:42rem;
-    margin:0;
-    color:var(--ink-muted);
-    font-size:1rem;
+    background:var(--sign);
+    color:var(--cream);
+    border-radius:8px;
+    padding:2.5rem 2.25rem;
+    box-shadow:8px 8px 0 var(--sign-deep);
   }
-  .lede strong{ color:var(--ink); font-weight:700; }
+  .signboard__eyebrow{
+    margin:0 0 .6rem;
+    font-size:.85rem;
+    font-weight:600;
+    letter-spacing:.02em;
+    color:var(--cream);
+    opacity:.85;
+  }
+  .signboard__eyebrow::before{ content:"● "; }
+  .signboard__title{
+    font-family:'Do Hyeon', sans-serif;
+    font-weight:400;
+    font-size:clamp(2.6rem, 7vw, 4rem);
+    line-height:1;
+    margin:0 0 .9rem;
+    color:#fff;
+  }
+  .signboard__desc{
+    max-width:34rem;
+    margin:0;
+    font-size:1rem;
+    color:var(--cream);
+    opacity:.92;
+  }
+  .signboard__desc strong{ color:#fff; font-weight:700; }
 
   main{ padding:3rem 0 1rem; }
   .grid{
     list-style:none; margin:0; padding:0;
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
-    gap:1.25rem;
+    grid-template-columns:repeat(auto-fill, minmax(270px, 1fr));
+    gap:1.5rem;
   }
 
   .card{
     display:flex;
+    flex-direction:column;
     text-decoration:none;
-    background:var(--paper-card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    overflow:hidden;
-    border-top:4px solid var(--accent);
-    transition:transform .15s ease, box-shadow .15s ease;
+    background:var(--plaque);
+    color:#fff;
+    min-height:11rem;
+    padding:1.6rem 2.75rem 1.5rem 1.5rem;
+    clip-path:polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%);
+    filter:drop-shadow(5px 5px 0 rgba(34,27,20,.28));
+    transition:transform .15s ease, filter .15s ease;
   }
   .card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 4px 8px rgba(42,36,30,.08), 0 14px 28px rgba(42,36,30,.1);
+    transform:translate(-2px, -2px);
+    filter:drop-shadow(8px 8px 0 rgba(34,27,20,.32));
   }
   @media (prefers-reduced-motion: reduce){
     .card{ transition:none; }
     .card:hover{ transform:none; }
   }
 
-  .card__body{ flex:1; display:flex; flex-direction:column; padding:1.5rem 1.25rem; min-width:0; }
-  .card__icon{ width:2rem; height:2rem; color:var(--accent); margin-bottom:.9rem; }
+  .card__icon{ width:1.9rem; height:1.9rem; color:#fff; opacity:.95; margin-bottom:.85rem; }
   .card__icon svg{ width:100%; height:100%; display:block; }
   .card__title{
-    font-family:'Gowun Batang', serif;
-    font-weight:700;
-    font-size:1.15rem;
-    margin:0 0 .4rem;
-    color:var(--ink);
+    font-family:'Do Hyeon', sans-serif;
+    font-weight:400;
+    font-size:1.3rem;
+    line-height:1.25;
+    margin:0 0 .5rem;
+    color:#fff;
   }
   .card__desc{
-    margin:0;
-    font-size:.92rem;
-    color:var(--ink-muted);
+    margin:0 0 1.1rem;
+    font-size:.86rem;
+    color:var(--cream);
+    opacity:.92;
   }
 
   .card__stub{
-    flex:0 0 5.25rem;
-    display:flex; flex-direction:column;
-    align-items:center; justify-content:center;
-    gap:.5rem;
-    padding:.75rem .5rem;
-    border-left:2px dashed var(--line);
-    text-align:center;
+    margin-top:auto;
+    display:flex;
+    align-items:center;
+    gap:.65rem;
   }
   .card__count{
+    display:inline-flex;
+    align-items:baseline;
     font-family:'JetBrains Mono', monospace;
     font-weight:600;
-    font-size:1.05rem;
-    color:var(--accent-text);
+    font-size:.92rem;
+    color:var(--plaque);
+    background:#fff;
+    padding:.28rem .65rem;
+    border-radius:5px;
   }
   .card__count small{
-    font-family:'Noto Sans KR', sans-serif;
+    font-family:'IBM Plex Sans KR', sans-serif;
     font-weight:500;
-    font-size:.72rem;
-    color:var(--ink-muted);
-    margin-left:.1rem;
+    font-size:.68rem;
+    margin-left:.15rem;
+    opacity:.85;
   }
   .card__go{
     font-size:.78rem;
-    font-weight:500;
-    color:var(--ink-muted);
+    font-weight:600;
+    color:#fff;
   }
   .card__sr{
     position:absolute;
@@ -156,54 +168,56 @@
 
   .pager{
     display:flex; align-items:center; justify-content:center;
-    gap:1rem; margin-top:2.5rem;
+    gap:1rem; margin-top:2.75rem;
   }
   .pager__btn{
-    font-family:'Noto Sans KR', sans-serif;
-    font-size:.85rem; font-weight:500;
+    font-family:'IBM Plex Sans KR', sans-serif;
+    font-size:.85rem; font-weight:600;
     padding:.5rem 1.1rem;
-    border:1px solid var(--line);
-    background:var(--paper-card);
-    border-radius:999px;
+    border:2px solid var(--ink);
+    background:var(--surface);
+    border-radius:6px;
     color:var(--ink);
     cursor:pointer;
   }
-  .pager__btn:hover:not(:disabled){ border-color:var(--stamp); }
+  .pager__btn:hover:not(:disabled){ background:var(--sign); border-color:var(--sign); color:#fff; }
   .pager__btn:disabled{ opacity:.4; cursor:default; }
   .pager__pages{ display:flex; gap:.4rem; }
   .pager__page{
-    width:2.1rem; height:2.1rem;
-    border-radius:50%;
-    border:1px solid var(--line);
-    background:var(--paper-card);
+    width:2.2rem; height:2.2rem;
+    border-radius:6px;
+    border:2px solid var(--line);
+    background:var(--surface);
     font-family:'JetBrains Mono', monospace;
     font-size:.82rem;
     color:var(--ink-muted);
     cursor:pointer;
   }
-  .pager__page:hover{ border-color:var(--stamp); }
+  .pager__page:hover{ border-color:var(--sign); }
   .pager__page[aria-current="page"]{
-    background:var(--stamp);
-    border-color:var(--stamp);
-    color:var(--paper);
+    background:var(--sign);
+    border-color:var(--sign);
+    color:#fff;
     font-weight:600;
   }
 
   footer{
     margin-top:4rem;
-    border-top:1px solid var(--line);
-    padding:2.5rem 0 3rem;
+    padding:0 0 3rem;
   }
   .notice{
-    background:var(--paper-card);
+    background:var(--surface);
     border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:1.5rem 1.75rem;
+    border-top:4px solid var(--sign);
+    border-radius:6px;
+    padding:1.6rem 1.9rem;
   }
   .notice h2{
-    font-family:'Gowun Batang', serif;
-    font-size:1.05rem;
+    font-family:'Do Hyeon', sans-serif;
+    font-weight:400;
+    font-size:1.15rem;
     margin:0 0 .9rem;
+    color:var(--ink);
   }
   .notice ul{
     margin:0; padding:0 0 0 1.1rem;
@@ -220,6 +234,7 @@
     display:flex; flex-wrap:wrap; gap:.5rem 1rem;
     justify-content:space-between;
   }
+  .colophon span:last-child{ font-family:'JetBrains Mono', monospace; font-size:.78rem; }
 </style>
 </head>
 <body>
@@ -227,10 +242,12 @@
 
 <header class="hero">
   <div class="wrap">
-    <span class="mark" aria-hidden="true">다</span>
-    <h1 class="wordmark">다있맵</h1>
-    <p class="lede">박물관부터 도서관, 병원, 유치원, 초등학교, 이용권 사용처, 물놀이장까지 —
-      <strong>공공데이터</strong>로 만든 동네 나들이 지도 7가지를 한곳에 모았습니다.</p>
+    <div class="signboard">
+      <p class="signboard__eyebrow">우리 동네 나들이 안내</p>
+      <h1 class="signboard__title">다있맵</h1>
+      <p class="signboard__desc">박물관부터 도서관, 병원, 유치원, 초등학교, 이용권 사용처, 물놀이장까지 —
+        <strong>공공데이터</strong>로 만든 동네 나들이 지도 7가지를 한곳에 모았습니다.</p>
+    </div>
   </div>
 </header>
 
@@ -239,12 +256,10 @@
     <ul class="grid">
 
       <li>
-        <a class="card" style="--accent:#6B5B95; --accent-text:#584A7C" href="https://spica07.github.io/summer_water/" target="_blank" rel="noopener">
-          <span class="card__body">
-            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span>
-            <span class="card__title">전국 물놀이장 지도</span>
-            <span class="card__desc">여름철 시원하게 놀 수 있는 물놀이장 모음</span>
-          </span>
+        <a class="card" style="--plaque:#584878" href="https://spica07.github.io/summer_water/" target="_blank" rel="noopener">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></span>
+          <span class="card__title">전국 물놀이장 지도</span>
+          <span class="card__desc">여름철 시원하게 놀 수 있는 물놀이장 모음</span>
           <span class="card__stub">
             <span class="card__count">835<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -254,12 +269,10 @@
       </li>
 
       <li>
-        <a class="card" style="--accent:#8D6E63; --accent-text:#7A5B50" href="https://spica07.github.io/museum_map/" target="_blank" rel="noopener">
-          <span class="card__body">
-            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 3l9 6"/><path d="M4 9v11h16V9"/><path d="M8 20v-7M12 20v-7M16 20v-7"/><path d="M2 20h20"/></svg></span>
-            <span class="card__title">전국 박물관·미술관 지도</span>
-            <span class="card__desc">국립·공립 박물관과 미술관, 관람시간과 요금까지</span>
-          </span>
+        <a class="card" style="--plaque:#6B5049" href="https://spica07.github.io/museum_map/" target="_blank" rel="noopener">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 3l9 6"/><path d="M4 9v11h16V9"/><path d="M8 20v-7M12 20v-7M16 20v-7"/><path d="M2 20h20"/></svg></span>
+          <span class="card__title">전국 박물관·미술관 지도</span>
+          <span class="card__desc">국립·공립 박물관과 미술관, 관람시간과 요금까지</span>
           <span class="card__stub">
             <span class="card__count">505<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -269,12 +282,10 @@
       </li>
 
       <li>
-        <a class="card" style="--accent:#3F6B4F; --accent-text:#345A42" href="https://spica07.github.io/library_map/" target="_blank" rel="noopener">
-          <span class="card__body">
-            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c2-1.2 4.5-1.5 8-1v15c-3.5-.5-6-.2-8 1V5Z"/><path d="M20 5c-2-1.2-4.5-1.5-8-1v15c3.5-.5 6-.2 8 1V5Z"/></svg></span>
-            <span class="card__title">전국 공공도서관 지도</span>
-            <span class="card__desc">책 읽으러 가기 좋은 도서관을 지역별로 찾아보기</span>
-          </span>
+        <a class="card" style="--plaque:#2E4F3A" href="https://spica07.github.io/library_map/" target="_blank" rel="noopener">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c2-1.2 4.5-1.5 8-1v15c-3.5-.5-6-.2-8 1V5Z"/><path d="M20 5c-2-1.2-4.5-1.5-8-1v15c3.5-.5 6-.2 8 1V5Z"/></svg></span>
+          <span class="card__title">전국 공공도서관 지도</span>
+          <span class="card__desc">책 읽으러 가기 좋은 도서관을 지역별로 찾아보기</span>
           <span class="card__stub">
             <span class="card__count">3,353<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -284,12 +295,10 @@
       </li>
 
       <li>
-        <a class="card" style="--accent:#D64550; --accent-text:#B3323C" href="https://spica07.github.io/hospital_map/" target="_blank" rel="noopener">
-          <span class="card__body">
-            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span>
-            <span class="card__title">전국 병원 지도</span>
-            <span class="card__desc">병원급 이상 의료기관, 급할 때 빠르게 찾기</span>
-          </span>
+        <a class="card" style="--plaque:#9C2E37" href="https://spica07.github.io/hospital_map/" target="_blank" rel="noopener">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span>
+          <span class="card__title">전국 병원 지도</span>
+          <span class="card__desc">병원급 이상 의료기관, 급할 때 빠르게 찾기</span>
           <span class="card__stub">
             <span class="card__count">4,229<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -299,12 +308,10 @@
       </li>
 
       <li>
-        <a class="card" style="--accent:#FF9843; --accent-text:#C9701F" href="https://spica07.github.io/kindergarten_map/" target="_blank" rel="noopener">
-          <span class="card__body">
-            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/><rect x="9" y="6" width="6" height="6" rx="1"/></svg></span>
-            <span class="card__title">서울 유치원 지도</span>
-            <span class="card__desc">서울 시내 공립·사립 유치원을 자치구별로</span>
-          </span>
+        <a class="card" style="--plaque:#A8581A" href="https://spica07.github.io/kindergarten_map/" target="_blank" rel="noopener">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/><rect x="9" y="6" width="6" height="6" rx="1"/></svg></span>
+          <span class="card__title">서울 유치원 지도</span>
+          <span class="card__desc">서울 시내 공립·사립 유치원을 자치구별로</span>
           <span class="card__stub">
             <span class="card__count">946<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -314,12 +321,10 @@
       </li>
 
       <li>
-        <a class="card" style="--accent:#2E9E5B; --accent-text:#24824A" href="https://spica07.github.io/elementary_school_map/" target="_blank" rel="noopener">
-          <span class="card__body">
-            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 21 8v1H3V8l9-5Z"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/><path d="M12 3v3"/></svg></span>
-            <span class="card__title">전국 초등학교 지도</span>
-            <span class="card__desc">우리 동네 초등학교를 지역별, 설립 구분별로 찾아보기</span>
-          </span>
+        <a class="card" style="--plaque:#257A48" href="https://spica07.github.io/elementary_school_map/" target="_blank" rel="noopener">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 21 8v1H3V8l9-5Z"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/><path d="M12 3v3"/></svg></span>
+          <span class="card__title">전국 초등학교 지도</span>
+          <span class="card__desc">우리 동네 초등학교를 지역별, 설립 구분별로 찾아보기</span>
           <span class="card__stub">
             <span class="card__count">6,303<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -329,12 +334,10 @@
       </li>
 
       <li>
-        <a class="card" style="--accent:#5B4FE0; --accent-text:#4B3FC7" href="https://spica07.github.io/voucher_map/" target="_blank" rel="noopener">
-          <span class="card__body">
-            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-4V8Z"/><path d="M9 6v12" stroke-dasharray="2 2.5"/></svg></span>
-            <span class="card__title">서울 평생교육이용권 지도</span>
-            <span class="card__desc">평생교육이용권 쓸 수 있는 기관을 분야별로 모아보기</span>
-          </span>
+        <a class="card" style="--plaque:#4B3FC7" href="https://spica07.github.io/voucher_map/" target="_blank" rel="noopener">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-4V8Z"/><path d="M9 6v12" stroke-dasharray="2 2.5"/></svg></span>
+          <span class="card__title">서울 평생교육이용권 지도</span>
+          <span class="card__desc">평생교육이용권 쓸 수 있는 기관을 분야별로 모아보기</span>
           <span class="card__stub">
             <span class="card__count">975<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
@@ -367,8 +370,8 @@
       </ul>
     </section>
     <p class="colophon">
-      <span>© 2026 다있맵 (daitmap)</span>
-      <span>공공데이터 기반 · 정보 공유 목적</span>
+      <span>© 2026 다있맵</span>
+      <span>daitmap</span>
     </p>
   </div>
 </footer>
