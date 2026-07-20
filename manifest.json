@@ -1,0 +1,34 @@
+{
+  "name": "다있맵",
+  "short_name": "다있맵",
+  "description": "박물관, 도서관, 병원, 유치원, 초등학교, 평생교육이용권 사용처, 물놀이장 — 공공데이터로 만든 지도 7가지 모음",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#E4F0E6",
+  "theme_color": "#6E3B1F",
+  "categories": ["travel", "education", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/icons/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/app-icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
