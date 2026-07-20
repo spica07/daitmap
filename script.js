@@ -52,3 +52,11 @@
   pager.hidden = false;
   render();
 })();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function (err) {
+      console.warn('서비스 워커 등록 실패:', err);
+    });
+  });
+}
