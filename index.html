@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <title>다있맵 — 아이와 갈 곳, 다 있는 우리 동네 지도 모음</title>
 <meta name="description" content="박물관, 도서관, 병원, 유치원, 서울 평생교육이용권 사용처, 물놀이장까지 — 공공데이터로 만든 동네 나들이 지도 6가지를 한곳에 모았습니다. 정보 공유 목적의 비영리 안내 사이트입니다.">
 <meta name="theme-color" content="#B23A2E">
@@ -154,6 +154,41 @@
     white-space:nowrap;
   }
 
+  .pager{
+    display:flex; align-items:center; justify-content:center;
+    gap:1rem; margin-top:2.5rem;
+  }
+  .pager__btn{
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:.85rem; font-weight:500;
+    padding:.5rem 1.1rem;
+    border:1px solid var(--line);
+    background:var(--paper-card);
+    border-radius:999px;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .pager__btn:hover:not(:disabled){ border-color:var(--stamp); }
+  .pager__btn:disabled{ opacity:.4; cursor:default; }
+  .pager__pages{ display:flex; gap:.4rem; }
+  .pager__page{
+    width:2.1rem; height:2.1rem;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--paper-card);
+    font-family:'JetBrains Mono', monospace;
+    font-size:.82rem;
+    color:var(--ink-muted);
+    cursor:pointer;
+  }
+  .pager__page:hover{ border-color:var(--stamp); }
+  .pager__page[aria-current="page"]{
+    background:var(--stamp);
+    border-color:var(--stamp);
+    color:var(--paper);
+    font-weight:600;
+  }
+
   footer{
     margin-top:4rem;
     border-top:1px solid var(--line);
@@ -294,6 +329,13 @@
       </li>
 
     </ul>
+
+    <nav class="pager" aria-label="지도 목록 페이지" hidden>
+      <button type="button" class="pager__btn" id="pagerPrev">← 이전</button>
+      <div class="pager__pages" id="pagerPages"></div>
+      <button type="button" class="pager__btn" id="pagerNext">다음 →</button>
+    </nav>
+    <p class="card__sr" id="pagerStatus" aria-live="polite"></p>
   </div>
 </main>
 
@@ -316,5 +358,6 @@
   </div>
 </footer>
 
+<script src="script.js" defer></script>
 </body>
 </html>
