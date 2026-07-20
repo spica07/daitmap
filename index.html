@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
-<title>다있맵 — 아이와 갈 곳, 다 있는 우리 동네 지도 모음</title>
-<meta name="description" content="박물관, 도서관, 병원, 유치원, 초등학교, 서울 평생교육이용권 사용처, 물놀이장까지 — 공공데이터로 만든 동네 나들이 지도 7가지를 한곳에 모았습니다. 정보 공유 목적의 비영리 안내 사이트입니다.">
+<title>다있맵 — 다 있는 우리 동네 지도 모음</title>
+<meta name="description" content="박물관, 도서관, 병원, 유치원, 초등학교, 서울 평생교육이용권 사용처, 물놀이장까지 — 공공데이터로 만든 지도 7가지를 한곳에 모았습니다. 정보 공유 목적의 비영리 안내 사이트입니다.">
 <meta name="theme-color" content="#6E3B1F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%236E3B1F'/%3E%3Ctext x='16' y='23' font-family='system-ui,sans-serif' font-weight='700' font-size='18' fill='%23F6EFDD' text-anchor='middle'%3E다%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,25 +128,6 @@
     margin-top:auto;
     display:flex;
     align-items:center;
-    gap:.65rem;
-  }
-  .card__count{
-    display:inline-flex;
-    align-items:baseline;
-    font-family:'JetBrains Mono', monospace;
-    font-weight:600;
-    font-size:.92rem;
-    color:var(--plaque);
-    background:#fff;
-    padding:.28rem .65rem;
-    border-radius:5px;
-  }
-  .card__count small{
-    font-family:'IBM Plex Sans KR', sans-serif;
-    font-weight:500;
-    font-size:.68rem;
-    margin-left:.15rem;
-    opacity:.85;
   }
   .card__go{
     font-size:.78rem;
@@ -238,8 +219,8 @@
   <div class="wrap">
     <div class="signboard">
       <h1 class="signboard__title">다있맵</h1>
-      <p class="signboard__desc">박물관부터 도서관, 병원, 유치원, 초등학교, 이용권 사용처, 물놀이장까지 —
-        <strong>공공데이터</strong>로 만든 동네 나들이 지도 7가지를 한곳에 모았습니다.</p>
+      <p class="signboard__desc">박물관부터 도서관, 병원, 유치원(서울), 초등학교, 이용권(서울) 사용처, 물놀이장까지 —
+        <strong>공공데이터</strong>로 만든 지도를 한곳에 모았습니다.</p>
     </div>
   </div>
 </header>
@@ -254,7 +235,6 @@
           <span class="card__title">전국 물놀이장 지도</span>
           <span class="card__desc">여름철 시원한 물놀이장 모음</span>
           <span class="card__stub">
-            <span class="card__count">835<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
             <span class="card__sr">(새 창에서 열림)</span>
           </span>
@@ -267,7 +247,6 @@
           <span class="card__title">전국 박물관·미술관 지도</span>
           <span class="card__desc">관람시간과 요금까지 한눈에</span>
           <span class="card__stub">
-            <span class="card__count">505<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
             <span class="card__sr">(새 창에서 열림)</span>
           </span>
@@ -280,7 +259,6 @@
           <span class="card__title">전국 공공도서관 지도</span>
           <span class="card__desc">지역별 도서관을 한눈에</span>
           <span class="card__stub">
-            <span class="card__count">3,353<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
             <span class="card__sr">(새 창에서 열림)</span>
           </span>
@@ -293,7 +271,6 @@
           <span class="card__title">전국 병원 지도</span>
           <span class="card__desc">급할 때 빠르게 찾는 병원</span>
           <span class="card__stub">
-            <span class="card__count">4,229<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
             <span class="card__sr">(새 창에서 열림)</span>
           </span>
@@ -306,7 +283,6 @@
           <span class="card__title">서울 유치원 지도</span>
           <span class="card__desc">서울 자치구별 유치원</span>
           <span class="card__stub">
-            <span class="card__count">946<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
             <span class="card__sr">(새 창에서 열림)</span>
           </span>
@@ -319,7 +295,6 @@
           <span class="card__title">전국 초등학교 지도</span>
           <span class="card__desc">지역별·설립별 초등학교</span>
           <span class="card__stub">
-            <span class="card__count">6,303<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
             <span class="card__sr">(새 창에서 열림)</span>
           </span>
@@ -332,7 +307,6 @@
           <span class="card__title">서울 평생교육이용권 지도</span>
           <span class="card__desc">서울 이용권 사용처 모음</span>
           <span class="card__stub">
-            <span class="card__count">975<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
             <span class="card__sr">(새 창에서 열림)</span>
           </span>
@@ -356,7 +330,8 @@
       <h2 id="notice-heading">안내</h2>
       <ul>
         <li>이 사이트는 정보 공유 목적으로 비영리로 제공되며, 별도 표시가 없는 한 콘텐츠의 무단 복제·재배포를 금지합니다.</li>
-        <li>모든 지도는 각 기관이 제공하는 공공데이터를 가공하여 제작되었습니다.</li>
+        <li>각 기관이 제공하는 공공데이터를 가공하여 제작되었습니다.</li>
+        <li>물놀이장 지도는 각 지자체 발표·언론 보도를 취합한 자료를, 평생교육이용권 지도는 서울시 평생교육이용권 전담 사이트(lllcard.kr) 명단을 사용해 — 다른 지도들의 공공데이터포털 표준데이터와는 출처가 다릅니다.</li>
         <li>상표, 행사명, 장소명 등에 대한 권리는 해당 권리자에게 있습니다.</li>
         <li>위치 정보 중 일부는 주소 기반으로 추정한 근사치일 수 있습니다.</li>
         <li>운영시간, 요금, 휴무일 등 세부 정보는 참고용이며, 방문 전 관련 기관을 통해 반드시 다시 확인해 주세요.</li>
