@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <title>다있맵 — 아이와 갈 곳, 다 있는 우리 동네 지도 모음</title>
-<meta name="description" content="박물관, 도서관, 병원, 유치원, 서울 평생교육이용권 사용처, 물놀이장까지 — 공공데이터로 만든 동네 나들이 지도 6가지를 한곳에 모았습니다. 정보 공유 목적의 비영리 안내 사이트입니다.">
+<meta name="description" content="박물관, 도서관, 병원, 유치원, 초등학교, 서울 평생교육이용권 사용처, 물놀이장까지 — 공공데이터로 만든 동네 나들이 지도 7가지를 한곳에 모았습니다. 정보 공유 목적의 비영리 안내 사이트입니다.">
 <meta name="theme-color" content="#B23A2E">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23B23A2E'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23F1EADC' text-anchor='middle'%3E다%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,7 +80,7 @@
   .grid{
     list-style:none; margin:0; padding:0;
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
     gap:1.25rem;
   }
 
@@ -229,8 +229,8 @@
   <div class="wrap">
     <span class="mark" aria-hidden="true">다</span>
     <h1 class="wordmark">다있맵</h1>
-    <p class="lede">박물관부터 도서관, 병원, 유치원, 이용권 사용처, 물놀이장까지 —
-      <strong>공공데이터</strong>로 만든 동네 나들이 지도 6가지를 한곳에 모았습니다.</p>
+    <p class="lede">박물관부터 도서관, 병원, 유치원, 초등학교, 이용권 사용처, 물놀이장까지 —
+      <strong>공공데이터</strong>로 만든 동네 나들이 지도 7가지를 한곳에 모았습니다.</p>
   </div>
 </header>
 
@@ -307,6 +307,21 @@
           </span>
           <span class="card__stub">
             <span class="card__count">946<small>곳</small></span>
+            <span class="card__go" aria-hidden="true">열기 ↗</span>
+            <span class="card__sr">(새 창에서 열림)</span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a class="card" style="--accent:#2E9E5B; --accent-text:#24824A" href="https://spica07.github.io/elementary_school_map/" target="_blank" rel="noopener">
+          <span class="card__body">
+            <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 21 8v1H3V8l9-5Z"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/><path d="M12 3v3"/></svg></span>
+            <span class="card__title">전국 초등학교 지도</span>
+            <span class="card__desc">우리 동네 초등학교를 지역별, 설립 구분별로 찾아보기</span>
+          </span>
+          <span class="card__stub">
+            <span class="card__count">6,303<small>곳</small></span>
             <span class="card__go" aria-hidden="true">열기 ↗</span>
             <span class="card__sr">(새 창에서 열림)</span>
           </span>

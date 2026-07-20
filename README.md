@@ -1,6 +1,6 @@
 # 다있맵 (daitmap)
 
-박물관·도서관·병원·유치원·이용권 사용처·물놀이장 지도 6종을 한곳에 모은 랜딩 페이지입니다.
+박물관·도서관·병원·유치원·초등학교·서울평생교육이용권 사용처·물놀이장 지도 7종을 한곳에 모은 랜딩 페이지입니다.
 공공데이터로 만든 동네 나들이 지도 모음 "다있맵" 브랜드의 진입점 역할을 합니다.
 
 ## 구성
@@ -14,6 +14,7 @@
 | 전국 공공도서관 지도 | https://spica07.github.io/library_map/ |
 | 전국 병원 지도 | https://spica07.github.io/hospital_map/ |
 | 서울 유치원 지도 | https://spica07.github.io/kindergarten_map/ |
+| 전국 초등학교 지도 | https://spica07.github.io/elementary_school_map/ |
 | 서울 평생교육이용권 지도 | https://spica07.github.io/voucher_map/ |
 | 전국 물놀이장 지도 | https://spica07.github.io/summer_water/ |
 
